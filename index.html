@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b141a"><meta name="description" content="Editable chat mockup for personal design and screenshot creation">
+  <link rel="manifest" href="manifest.json"><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
+  <title>Chat Studio — Chat Mockup</title>
+</head>
+<body>
+<div class="app-shell">
+  <main class="phone" id="phone">
+    <header class="topbar">
+      <button class="icon-btn back" aria-label="Back"><img src="back.svg" alt=""></button>
+      <label class="avatar-wrap" for="avatarFile" title="Profile photo बदलें"><img id="avatar" alt="Profile photo" src="avatar.svg"></label>
+      <div class="profile"><div class="profile-name" id="headerName">Kavya Madam Bha...</div><div class="last-seen" id="lastSeen">last seen today at 8:45 pm</div></div>
+      <button class="icon-btn" aria-label="Video call"><img src="video.svg" alt=""></button>
+      <button class="icon-btn" aria-label="Call"><img src="call.svg" alt=""></button>
+      <button class="icon-btn more" aria-label="More"><img src="menu.svg" alt=""></button>
+    </header>
+    <section class="chat-area" id="chatArea" aria-label="Chat messages">
+      <div id="messages" class="messages"></div>
+    </section>
+    <footer class="composer" id="composer">
+      <div class="composer-field">
+        <button class="composer-icon emoji-icon" id="emojiBtn" title="Emoji" aria-label="Emoji"><img src="emoji.svg" alt=""></button>
+        <input id="messageInput" type="text" placeholder="Message" autocomplete="off" aria-label="Message text">
+        <button class="composer-icon attach" title="Attach" aria-label="Attach"><img src="attachment.svg" alt=""></button>
+        <button class="composer-icon rupee" title="Payment" aria-label="Payment"><img src="rupee.svg" alt=""></button>
+        <button class="composer-icon camera" title="Camera" aria-label="Camera"><img src="camera.svg" alt=""></button>
+      </div>
+      <button class="send-btn mic-btn" id="sendBtn" aria-label="Send message" title="Send message"><img src="microphone.svg" alt=""></button>
+    </footer>
+  </main>
+  <aside class="control-panel">
+    <div class="panel-heading"><div><p class="eyebrow">CHAT MOCKUP BUILDER</p><h1>Chat Studio</h1><p class="subheading">अपने चैट स्क्रीनशॉट को पूरी तरह कस्टमाइज़ करें।</p></div><button id="resetBtn" class="text-button">Reset</button></div>
+    <div class="panel-tabs"><button class="tab active" data-tab="messagesTab">Messages</button><button class="tab" data-tab="profileTab">Profile</button><button class="tab" data-tab="lookTab">Appearance</button></div>
+    <section class="tab-content active" id="messagesTab">
+      <div class="section-title"><h2>नया मैसेज</h2><span class="hint">दोनों तरफ कंट्रोल</span></div>
+      <label class="field-label">Message text<input id="newText" placeholder="अपना मैसेज लिखें…"></label>
+      <div class="two-col"><label class="field-label">किस तरफ से<select id="newSide"><option value="out">आप (right)</option><option value="in">दूसरी तरफ (left)</option></select></label><label class="field-label">Message status<select id="newStatus"><option value="sent">Single tick ✓</option><option value="delivered" selected>Double tick ✓✓</option><option value="read">Blue double tick ✓✓</option><option value="none">No ticks</option></select></label></div>
+      <div class="two-col"><label class="field-label">Date<input type="date" id="newDate"></label><label class="field-label">Time<input type="time" id="newTime" value="09:12"></label></div>
+      <button class="primary-btn" id="addMessageBtn">＋ Add message</button>
+      <div class="section-title list-title"><h2>Messages list</h2><span class="hint" id="messageCount">0 messages</span></div>
+      <div id="messageList" class="message-list"></div>
+      <p class="small-note">किसी मैसेज को edit करने के लिए सूची में उसके <b>Edit</b> बटन को दबाएँ। मैसेज की तारीख और समय अलग-अलग सेट किए जा सकते हैं।</p>
+    </section>
+    <section class="tab-content" id="profileTab">
+      <div class="section-title"><h2>Chat profile</h2></div>
+      <label class="field-label">Display name<input id="profileName" value="Kavya Madam Bha..."></label>
+      <label class="field-label">Phone number<input id="profileNumber" value="+91 98765 43210"></label>
+      <div class="two-col"><label class="field-label">Header में दिखाएँ<select id="showAs"><option value="name">Name</option><option value="number">Phone number</option></select></label><label class="field-label">Last seen text<input id="lastSeenInput" value="last seen today at 8:45 pm"></label></div>
+      <label class="field-label">Profile photo<input type="file" id="avatarFile" accept="image/*"></label>
+      <label class="field-label">Header preview style<select id="headerStyle"><option value="normal">Normal</option><option value="minimal">Hide last seen</option></select></label>
+      <p class="small-note">यह एक local mockup है। इसमें असली WhatsApp अकाउंट या नंबर से कनेक्शन नहीं होता।</p>
+    </section>
+    <section class="tab-content" id="lookTab">
+      <div class="section-title"><h2>Chat appearance</h2></div>
+      <label class="field-label">Background preset<select id="bgPreset"><option value="default">WhatsApp dark default</option><option value="plain">Plain dark</option><option value="light">Light</option><option value="green">Deep green</option><option value="custom">Custom color</option><option value="image">Background image</option></select></label>
+      <div class="two-col"><label class="field-label">Custom color<input type="color" id="bgColor" value="#0b141a"></label><label class="field-label">Text size<select id="textSize"><option value="14">Small</option><option value="16" selected>Normal</option><option value="18">Large</option></select></label></div>
+      <label class="field-label">Background image<input type="file" id="bgFile" accept="image/*"></label>
+      <div class="section-title"><h2>Tick controls</h2></div>
+      <label class="field-label">Default status for new outgoing messages<select id="defaultStatus"><option value="sent">Single tick ✓</option><option value="delivered" selected>Double tick ✓✓</option><option value="read">Blue double tick ✓✓</option><option value="none">No ticks</option></select></label>
+      <label class="toggle-row"><span>Show message timestamps</span><input id="showTimes" type="checkbox" checked></label>
+      <label class="toggle-row"><span>Show date separators</span><input id="showDates" type="checkbox" checked></label>
+      <label class="toggle-row"><span>Show composer (bottom bar)</span><input id="showComposer" type="checkbox" checked></label>
+      <button class="secondary-btn" id="exportBtn">Export settings JSON</button><button class="secondary-btn" id="importBtn">Import settings JSON</button><input id="importFile" type="file" accept="application/json" hidden>
+    </section>
+    <div class="panel-footer"><button class="secondary-btn" id="screenshotHint">Screenshot tips</button><button class="primary-btn" id="installBtn" hidden>Install app</button><button class="secondary-btn" id="saveBtn">Save locally</button></div>
+    <p class="footer-note">For fictional mockups and design previews. Avoid presenting edited chats as authentic records.</p>
+  </aside>
+</div>
+<div id="editModal" class="modal" hidden><div class="modal-card"><div class="modal-heading"><h2>Edit message</h2><button id="closeModal" class="icon-btn">×</button></div><label class="field-label">Text<textarea id="editText" rows="3"></textarea></label><div class="two-col"><label class="field-label">Sender<select id="editSide"><option value="out">You (right)</option><option value="in">Other person (left)</option></select></label><label class="field-label">Ticks<select id="editStatus"><option value="sent">Single tick</option><option value="delivered">Double tick</option><option value="read">Blue double tick</option><option value="none">No ticks</option></select></label></div><div class="two-col"><label class="field-label">Date<input type="date" id="editDate"></label><label class="field-label">Time<input type="time" id="editTime"></label></div><div class="modal-actions"><button id="deleteMessageBtn" class="danger-btn">Delete</button><button id="cancelEditBtn" class="secondary-btn">Cancel</button><button id="applyEditBtn" class="primary-btn">Save changes</button></div></div></div>
+<div id="toast" role="status" class="toast" aria-live="polite"></div>
+<script src="app.js"></script>
+</body></html>
