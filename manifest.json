@@ -1,1 +1,33 @@
-{"name":"Chat Studio — Chat Mockup","short_name":"Chat Studio","description":"Editable fictional chat mockup builder","start_url":"./","scope":"./","display":"standalone","orientation":"portrait","background_color":"#0b141a","theme_color":"#0b141a","icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
+{
+  "id": "./index.html",
+  "name": "Chat Studio — Chat Mockup",
+  "short_name": "Chat Studio",
+  "description": "Editable fictional chat mockup builder",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b141a",
+  "theme_color": "#0b141a",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
